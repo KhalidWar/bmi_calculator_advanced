@@ -25,11 +25,11 @@ class CalculatorBrain {
 
   String getInterp() {
     if (_bmi >= 25) {
-      return 'You are a fatass. AKA overweight.';
+      return 'You are overweight.';
     } else if (_bmi > 18.5) {
       return "Average Joe";
     } else {
-      return 'What\'s up stick figure';
+      return 'You are on the skinny side.';
     }
   }
 }
