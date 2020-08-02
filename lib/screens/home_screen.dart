@@ -28,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int age = 25;
 
   String imperialDigits(int input) {
-    dynamic feet = (input / 12).round();
-    dynamic inches = (input / 7).round();
+    int feet = input ~/ 12;
+    int inches = input % 12;
     return '$feet\' $inches\"';
   }
 
@@ -140,7 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 RoundSliderOverlayShape(overlayRadius: 30.0),
                           ),
                           child: Slider(
-//                            divisions: isImperial ? 20 : 213,
                             value: isImperial
                                 ? height.toDouble()
                                 : height.toDouble(),
@@ -169,10 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          'WEIGHT',
-                          style: kLabelTextStyle,
-                        ),
+                        Text('WEIGHT', style: kLabelTextStyle),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
