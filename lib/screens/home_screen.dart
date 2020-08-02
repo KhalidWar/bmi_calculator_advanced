@@ -1,5 +1,6 @@
 import 'package:bmi_calculator/services/calculator_brain.dart';
 import 'package:bmi_calculator/widgets/calculate_button.dart';
+import 'package:bmi_calculator/widgets/measuring_unit_widget.dart';
 import 'package:bmi_calculator/widgets/reuable_card_content.dart';
 import 'package:bmi_calculator/widgets/reusable_card.dart';
 import 'package:bmi_calculator/widgets/round_icon_button.dart';
@@ -22,14 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
   MeasuringUnit measuringUnit = MeasuringUnit.imperial;
 
   int height = 36;
-
   int weightLbs = 160;
   int weightKg = 45;
-
   int age = 25;
 
   String imperialDigits(int input) {
-//    int filterInput = input / 12;
     dynamic feet = (input / 12).round();
     dynamic inches = (input / 7).round();
     return '$feet\' $inches\"';
@@ -37,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    bool isImperial = measuringUnit == MeasuringUnit.imperial;
     return Scaffold(
       appBar: AppBar(title: Text('BMI CALCULATOR'), centerTitle: true),
       body: Column(
@@ -81,53 +80,27 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             children: [
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: MeasuringUnitWidget(
+                  label: 'Imperial',
+                  color: isImperial ? kActiveCardColor : kInactiveCardColor,
+                  onPress: () {
                     setState(() {
                       measuringUnit = MeasuringUnit.imperial;
                       height = 36;
                     });
                   },
-                  child: Container(
-                    height: MediaQuery.of(context).size.height / 20,
-                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: measuringUnit == MeasuringUnit.imperial
-                          ? kActiveCardColor
-                          : kInactiveCardColor,
-                    ),
-                    child: Center(
-                        child: Text(
-                      'Imperial',
-                      style: kBodyTextStyle,
-                    )),
-                  ),
                 ),
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: () {
+                child: MeasuringUnitWidget(
+                  label: 'Metric',
+                  color: isImperial ? kInactiveCardColor : kActiveCardColor,
+                  onPress: () {
                     setState(() {
                       measuringUnit = MeasuringUnit.metric;
                       height = 91;
                     });
                   },
-                  child: Container(
-                    height: MediaQuery.of(context).size.height / 20,
-                    margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: measuringUnit == MeasuringUnit.metric
-                          ? kActiveCardColor
-                          : kInactiveCardColor,
-                    ),
-                    child: Center(
-                        child: Text(
-                      'Metric',
-                      style: kBodyTextStyle,
-                    )),
-                  ),
                 ),
               ),
             ],
@@ -142,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text('HEIGHT', style: kLabelTextStyle),
-                        measuringUnit == MeasuringUnit.imperial
+                        isImperial
                             ? Text(
                                 imperialDigits(height),
                                 style: kNumberTextStyle,
@@ -167,18 +140,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 RoundSliderOverlayShape(overlayRadius: 30.0),
                           ),
                           child: Slider(
-//                            divisions: measuringUnit == MeasuringUnit.imperial
-//                                ? 12
-//                                : 213,
-                            value: measuringUnit == MeasuringUnit.imperial
+//                            divisions: isImperial ? 20 : 213,
+                            value: isImperial
                                 ? height.toDouble()
                                 : height.toDouble(),
-                            min: measuringUnit == MeasuringUnit.imperial
-                                ? 36
-                                : 91,
-                            max: measuringUnit == MeasuringUnit.imperial
-                                ? 84
-                                : 213,
+                            min: isImperial ? 36 : 91,
+                            max: isImperial ? 84 : 213,
                             onChanged: (double newValue) {
                               setState(() {
                                 height = newValue.toInt();
@@ -210,16 +177,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              measuringUnit == MeasuringUnit.imperial
+                              isImperial
                                   ? weightLbs.toString()
                                   : weightKg.toString(),
                               style: kNumberTextStyle,
                             ),
                             SizedBox(height: 50),
                             Text(
-                              measuringUnit == MeasuringUnit.imperial
-                                  ? ' lbs'
-                                  : ' kg',
+                              isImperial ? ' lbs' : ' kg',
                               style: TextStyle(
                                 fontSize: 25.0,
                                 color: kActiveSelectedUnitColor,
@@ -234,14 +199,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
-                                  measuringUnit == MeasuringUnit.imperial
-                                      ? weightLbs--
-                                      : weightKg--;
+                                  isImperial ? weightLbs-- : weightKg--;
                                 });
                               },
                               onLongPressed: () {
                                 setState(() {
-                                  measuringUnit == MeasuringUnit.imperial
+                                  isImperial
                                       ? weightLbs = weightLbs - 10
                                       : weightKg = weightKg - 10;
                                 });
@@ -252,14 +215,12 @@ class _HomeScreenState extends State<HomeScreen> {
                               icon: FontAwesomeIcons.plus,
                               onPressed: () {
                                 setState(() {
-                                  measuringUnit == MeasuringUnit.imperial
-                                      ? weightLbs++
-                                      : weightKg++;
+                                  isImperial ? weightLbs++ : weightKg++;
                                 });
                               },
                               onLongPressed: () {
                                 setState(() {
-                                  measuringUnit == MeasuringUnit.imperial
+                                  isImperial
                                       ? weightLbs = weightLbs + 10
                                       : weightKg = weightKg + 10;
                                 });
