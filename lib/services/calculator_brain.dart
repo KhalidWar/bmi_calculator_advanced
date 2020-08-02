@@ -1,16 +1,22 @@
 import 'dart:math';
 
 class CalculatorBrain {
-  CalculatorBrain({this.height, this.weight});
+  CalculatorBrain({this.height, this.weight, this.isImperial});
 
   final height;
   final weight;
+  final isImperial;
 
   double _bmi;
 
   String calculateBMI() {
-    _bmi = weight / pow(height / 100, 2);
-    return _bmi.toStringAsFixed(1);
+    if (isImperial) {
+      _bmi = 703 * weight / pow(height, 2);
+      return _bmi.toStringAsFixed(1);
+    } else {
+      _bmi = weight / pow(height / 100, 2);
+      return _bmi.toStringAsFixed(1);
+    }
   }
 
   String getResult() {

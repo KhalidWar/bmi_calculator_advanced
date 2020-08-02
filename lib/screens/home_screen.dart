@@ -284,8 +284,11 @@ class _HomeScreenState extends State<HomeScreen> {
           CalculateButton(
             text: 'CALCULATE',
             onPress: () {
-              CalculatorBrain calculatorBrain =
-                  CalculatorBrain(height: height, weight: weightKg);
+              CalculatorBrain calculatorBrain = CalculatorBrain(
+                isImperial: isImperial,
+                height: height,
+                weight: isImperial ? weightLbs : weightKg,
+              );
               Navigator.push(
                 context,
                 MaterialPageRoute(
