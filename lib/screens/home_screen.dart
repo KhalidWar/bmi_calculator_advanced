@@ -239,6 +239,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       : weightKg--;
                                 });
                               },
+                              onLongPressed: () {
+                                setState(() {
+                                  measuringUnit == MeasuringUnit.imperial
+                                      ? weightLbs = weightLbs - 10
+                                      : weightKg = weightKg - 10;
+                                });
+                              },
                             ),
                             SizedBox(width: 10.0),
                             RoundIconButton(
@@ -248,6 +255,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   measuringUnit == MeasuringUnit.imperial
                                       ? weightLbs++
                                       : weightKg++;
+                                });
+                              },
+                              onLongPressed: () {
+                                setState(() {
+                                  measuringUnit == MeasuringUnit.imperial
+                                      ? weightLbs = weightLbs + 10
+                                      : weightKg = weightKg + 10;
                                 });
                               },
                             ),
