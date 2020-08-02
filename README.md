@@ -4,7 +4,8 @@
 This app is based on [BMI Calculator](https://github.com/londonappbrewery/bmi-calculator-flutter) but with added features. This app is built using [Flutter](https://flutter.dev) framework.
 
 ## Screenshots
-<img src="LINK_TO_SCREENSHOT" width="150">
+<img src="https://github.com/KhalidWar/bmi_calculator_advanced/blob/master/assets/screenshots/2020-08-02%2000.25.19.jpg" width="150"> <img src="https://github.com/KhalidWar/bmi_calculator_advanced/blob/master/assets/screenshots/2020-08-02%2000.25.33.jpg" width="150"> <img src="https://github.com/KhalidWar/bmi_calculator_advanced/blob/master/assets/screenshots/2020-08-02%2000.26.03.jpg" width="150"> <img src="https://github.com/KhalidWar/bmi_calculator_advanced/blob/master/assets/screenshots/2020-08-02%2000.26.15.jpg" width="150"> 
+
 
 ## Features
 - Basic [BMI Calculator](https://github.com/londonappbrewery/bmi-calculator-flutter) with added imperial measurements(pounds, feet, and inches)
