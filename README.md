@@ -1,6 +1,4 @@
 # BMI Calculator
-
-## Description
 This app is based on [BMI Calculator](https://github.com/londonappbrewery/bmi-calculator-flutter) but with added features. This app is built using [Flutter](https://flutter.dev) framework.
 
 ## Screenshots
@@ -14,28 +12,21 @@ This app is based on [BMI Calculator](https://github.com/londonappbrewery/bmi-ca
 - [Font Awesome Icons](https://pub.dev/packages/font_awesome_flutter)
 
 ## Installation
-By either sideloading attacked [APK file](https://github.com/KhalidWar/bmi_calculator_advanced/releases) onto your android device or building project from source following steps below.
+Install by either sideloading attacked [APK file](https://github.com/KhalidWar/bmi_calculator_advanced/releases) on your android device or by building project from source following steps below.
+
 
 ### Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Check out [Flutter's official guide](https://flutter.dev/docs/get-started/install) to installing and running flutter.
 
 ### Prerequisites
-```
-IDE (Android Studio or VSC)
-Dart/Flutter SDK and plugins
-Emulator or physical device
-```
+- Download IDE either [Android Studio](https://developer.android.com/studio) or [VSC](https://code.visualstudio.com/)
+- Install Flutter SDK and Dart plugin
+- Emulator or physical device
 
-A few resources to get you started:
-- [Flutter's official guide to get up and running](https://flutter.dev/docs/get-started/install)
-
-Then clone this repo to your machine:
-
-`https://github.com/KhalidWar/bmi_calculator_advanced.git`
-
-Run app on Emulator or physical device.
-
-**All set!**
+### Steps
+- Clone this repo to your machine: `https://github.com/KhalidWar/bmi_calculator_advanced.git`
+- Run on Emulator or physical device
+- All set!
 
 ## Licensing
 This project is licensed MIT license.
